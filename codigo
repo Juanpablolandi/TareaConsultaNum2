@@ -1,0 +1,60 @@
+import math.sqrt
+
+def integracionSimpson(f: (Double => Double), a: Double, b: Double): Double = {
+  val divi: Double = (a + b) / 2
+  ((b - a) * ((f(a) + 4 * f(divi) + f(b)))) / 6
+}
+
+var f1: Double => Double = (x: Double) => (-(x*x)+8*x-12)
+var f2: Double => Double = (x: Double) => 3*(x*x)
+var f3: Double => Double = (x: Double) => (x + 2 * (x*x)-(x*x*x)+5*(x*x*x*x))
+var f4: Double => Double = (x: Double) => (2 * x + 1)/(x*x+x)
+var f5: Double => Double = (x: Double) => math.pow(2.72,x)
+var f6: Double => Double = (x: Double) => 1 / sqrt.apply(x -1)
+var f7: Double => Double = (x: Double) => 1/(1 + (x * x))
+
+def margenError(e : Double, o: Double) : Double = (e - o).abs
+
+var obtengof1: Double = integracionSimpson(f1, 3, 5)
+var seEsperaf1: Double = 7.33
+var obtengof2: Double = integracionSimpson(f2, 0, 2)
+var seEsperaf2: Double = 8
+var obtengof3: Double = integracionSimpson(f3, -1, 1)
+var seEsperaf3: Double = 3.33
+var obtengof4: Double = integracionSimpson(f4, 1, 2)
+var seEsperaf4: Double = 1.09861
+var obtengof5: Double = integracionSimpson(f5, 0, 1)
+var seEsperaf5: Double = 1.71
+var obtengof6: Double = integracionSimpson(f6, 2, 3)
+var seEsperaf6: Double = 0.8284
+var obtengof7: Double = integracionSimpson(f7, 0, 1)
+var seEsperaf7: Double = 0.785398
+
+println("El valor que se obtuvo de la PRIMERA FUNCIÓN: " + obtengof1)
+println("El valor que se esperaba de la PRIMERA FUNCIÓN: " + seEsperaf1)
+println("El margen de error de la PRIMERA FUNCIÓN: " + margenError(obtengof1, seEsperaf1))
+println("========================================")
+println("El valor que se obtuvo de la SEGUNDA FUNCIÓN: " + obtengof2)
+println("El valor que se esperaba de la SEGUNDA FUNCIÓN: " + seEsperaf2)
+println("El margen de error de la SEGUNDA FUNCIÓN: " + margenError(obtengof2, seEsperaf2))
+println("========================================")
+println("El valor que se obtuvo de la TERCER FUNCIÓN: " + obtengof3)
+println("El valor que se esperaba de la TERCERA FUNCIÓN: " + seEsperaf3)
+println("El margen de error de la TERCERA FUNCIÓN: " + margenError(obtengof3, seEsperaf3))
+println("========================================")
+println("El valor que se obtuvo de la CUARTA FUNCIÓN: " + obtengof4)
+println("El valor que se esperaba de la CUARTA FUNCIÓN: " + seEsperaf4)
+println("El margen de error de la CUARTA FUNCIÓN: " + margenError(obtengof4, seEsperaf4))
+println("========================================")
+println("El valor que se obtuvo de la QUINTA FUNCIÓN: " + obtengof5)
+println("El valor que se esperaba de la QUINTA FUNCIÓN: " + seEsperaf5)
+println("El margen de error de la QUINTA FUNCIÓN: " + margenError(obtengof5, seEsperaf5))
+println("========================================")
+println("El valor que se obtuvo de la SEXTA FUNCIÓN: " + obtengof6)
+println("El valor que se esperaba de la SEXTA FUNCIÓN: " + seEsperaf6)
+println("El margen de error de la SEXTA FUNCIÓN: " + margenError(obtengof6, seEsperaf6))
+println("========================================")
+println("El valor que se obtuvo de la SEPTIMA FUNCIÓN: " + obtengof7)
+println("El valor que se esperaba de la SEPTIMA FUNCIÓN: " + seEsperaf7)
+println("El margen de error de la SEPTIMA FUNCIÓN: " + margenError(obtengof7, seEsperaf7))
+println("========================================")
